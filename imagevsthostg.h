@@ -11,6 +11,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class ImageVSTHostG; }
 QT_END_NAMESPACE
 
+
+
 class ImageVSTHostG : public QMainWindow
 {
     Q_OBJECT
@@ -23,8 +25,10 @@ public:
 
 private slots:
     void on_runVSTBtn_clicked();
+   // void on_actionLoadImage_clicked();
 
 private:
+    QString imgFilePath;
     Ui::ImageVSTHostG *ui;
     void addSlider(QVBoxLayout *box, Host *hst, AEffect *plug, int plugNum);
     void displayPreview(QString path);

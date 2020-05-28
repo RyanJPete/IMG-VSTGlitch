@@ -1,5 +1,5 @@
 #include "imagevsthostg.h"
-#include "../ImageVSTHost/ImageVSTHost.h"
+#include "ImageVSTHost.h"
 
 #include <QApplication>
 #include <QPushButton>

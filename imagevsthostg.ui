@@ -74,6 +74,7 @@
     </property>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -83,20 +84,19 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuAHHH">
+   <widget class="QMenu" name="FileMenu">
     <property name="title">
-     <string>AHHH</string>
+     <string>File</string>
     </property>
+    <addaction name="actionLoadImage"/>
    </widget>
-   <widget class="QMenu" name="menuyou">
-    <property name="title">
-     <string>you</string>
-    </property>
-   </widget>
-   <addaction name="menuAHHH"/>
-   <addaction name="menuyou"/>
+   <addaction name="FileMenu"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoadImage">
+   <property name="text">
+    <string>Load Image</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

@@ -6,6 +6,7 @@
 #include <QString>
 #include <QLabel>
 #include <QScrollArea>
+#include <QFileDialog>
 
 //#include <opencv2/core.hpp>
 
@@ -21,8 +22,10 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
     hst->configurePluginCallbacks(plug);
     hst->startPlugin(plug);
     ui->setupUi(this);
+    imgFilePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
 
-    displayPreview("img.bmp");
+
+    displayPreview(imgFilePath);
 
 
     QVBoxLayout *controlLay = new QVBoxLayout();
@@ -34,6 +37,7 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
     QFrame *controlFrame = new QFrame(ui->controlArea);
     controlFrame->setLayout(controlLay);
     ui->controlArea->setWidget(controlFrame);
+
 
 }
 
@@ -86,15 +90,19 @@ void ImageVSTHostG::addSlider(QVBoxLayout *box, Host *hst, AEffect *plug, int pl
 }
 
 void ImageVSTHostG::procAndDisplay(){
-    hst->loadImage("C:\\Users\\Jerome\\Documents\\Programming\\ImageVSTHostG\\happyguy.bmp");
+    hst->loadImage(imgFilePath.toStdString());
     hst->processAudio(plug);
     hst->copyHeader();
     hst->writeOutputs("output.bmp");
-//    displayPreview("C:\\Users\\Jerome\\Documents\\Programming\\ImageVSTHostG\\happyguy.bmp");
-    displayPreview("C:\\Users\\Jerome\\Documents\\Programming\\build-ImageVSTHostG-Desktop_Qt_5_12_6_MinGW_64_bit-Debug\\output.bmp");
+    displayPreview(imgFilePath);
 }
 
 void ImageVSTHostG::on_runVSTBtn_clicked()
 {
    procAndDisplay();
 }
+
+//void ImageVSTHostG::on_actionLoadImage_clicked()
+//{
+  //  QString fileName = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
+//}
