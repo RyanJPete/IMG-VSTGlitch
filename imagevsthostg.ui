@@ -80,17 +80,12 @@
      <x>0</x>
      <y>0</y>
      <width>1195</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAHHH">
     <property name="title">
      <string>AHHH</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menufuck">
-    <property name="title">
-     <string>fuck</string>
     </property>
    </widget>
    <widget class="QMenu" name="menuyou">
@@ -99,7 +94,6 @@
     </property>
    </widget>
    <addaction name="menuAHHH"/>
-   <addaction name="menufuck"/>
    <addaction name="menuyou"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
