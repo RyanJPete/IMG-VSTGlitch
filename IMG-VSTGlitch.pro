@@ -5,7 +5,6 @@
 TEMPLATE = app
 TARGET = Image-VSTGlitch
 INCLUDEPATH += . ../old-vst/pluginterfaces/vst2.x
-INCLUDEPATH += . ../ImageVSTHost
 
 INCLUDEPATH += .
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -19,8 +18,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # Input
 HEADERS += imagevsthostg.h \
-    ../ImageVSTHost/ImageVSTHost.h
+    ImageVSTHost.h
 FORMS += imagevsthostg.ui
 SOURCES += imagevsthostg.cpp main.cpp \
-    ../ImageVSTHost/ImageVSTHost.cpp
+    ImageVSTHost.cpp
 

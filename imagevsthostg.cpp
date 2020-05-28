@@ -1,7 +1,7 @@
 #include "imagevsthostg.h"
 #include "ui_imagevsthostg.h"
 #include "ImageVSTHost.h"
- #include <QPushButton>
+#include <QPushButton>
 #include <QSlider>
 #include <QString>
 #include <QLabel>
@@ -15,7 +15,7 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
 {
     hst = new Host();
     hst->initializeIO();
-    char vstPath[] = "C:\\VSTs\\DragonflyHallReverb-vst.dll";
+    char vstPath[] = "C:\\VSTs\\DragonflyRoomReverb-vst.dll";
     //char vstPath[] = "C:\\VSTs\\CocoaDelay64";
     plug = hst->loadPlugin(vstPath);
     hst->configurePluginCallbacks(plug);
