@@ -94,7 +94,7 @@ void ImageVSTHostG::procAndDisplay(){
     hst->processAudio(plug);
     hst->copyHeader();
     hst->writeOutputs("output.bmp");
-    displayPreview(imgFilePath);
+    displayPreview("output.bmp");
 }
 
 void ImageVSTHostG::on_runVSTBtn_clicked()
