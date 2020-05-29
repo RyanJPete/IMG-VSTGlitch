@@ -35,5 +35,6 @@ private:
     int VSTFloatToInt(float val);
     float intToVSTFloat(int val);
     void procAndDisplay();
+    void changeVST(char vstPath[]);
 };
 #endif // IMAGEVSTHOSTG_H

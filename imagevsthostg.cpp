@@ -14,13 +14,12 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ImageVSTHostG)
 {
-    hst = new Host();
-    hst->initializeIO();
+
     char vstPath[] = "C:\\VSTs\\DragonflyRoomReverb-vst.dll";
     //char vstPath[] = "C:\\VSTs\\CocoaDelay64";
-    plug = hst->loadPlugin(vstPath);
-    hst->configurePluginCallbacks(plug);
-    hst->startPlugin(plug);
+
+    changeVST(vstPath);
+
     ui->setupUi(this);
     imgFilePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
 
@@ -44,6 +43,17 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
 ImageVSTHostG::~ImageVSTHostG()
 {
     delete ui;
+}
+
+void ImageVSTHostG::changeVST(char vstPath[]){
+    QString tempstr = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("VSTs (*.dll)"));
+    QByteArray tempba = tempstr.toLatin1();
+    vstPath = tempba.data();
+    hst = new Host();
+    hst->initializeIO();
+    plug = hst->loadPlugin(vstPath);
+    hst->configurePluginCallbacks(plug);
+    hst->startPlugin(plug);
 }
 
 int ImageVSTHostG::VSTFloatToInt(float val){
