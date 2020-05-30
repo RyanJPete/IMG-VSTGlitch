@@ -21,8 +21,12 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
     changeVST(vstPath);
 
     ui->setupUi(this);
-    imgFilePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
+    connect(ui->actionLoadImage, &QAction::triggered, [=] () {          //change vst param value
+        imgFilePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
 
+    });
+
+    imgFilePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
 
     displayPreview(imgFilePath);
 
@@ -112,7 +116,3 @@ void ImageVSTHostG::on_runVSTBtn_clicked()
    procAndDisplay();
 }
 
-//void ImageVSTHostG::on_actionLoadImage_clicked()
-//{
-  //  QString fileName = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
-//}

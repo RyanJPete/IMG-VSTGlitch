@@ -25,7 +25,6 @@ public:
 
 private slots:
     void on_runVSTBtn_clicked();
-   // void on_actionLoadImage_clicked();
 
 private:
     QString imgFilePath;
@@ -36,5 +35,6 @@ private:
     float intToVSTFloat(int val);
     void procAndDisplay();
     void changeVST(char vstPath[]);
+
 };
 #endif // IMAGEVSTHOSTG_H
