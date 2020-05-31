@@ -23,7 +23,6 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
     ui->setupUi(this);
     connect(ui->actionLoadImage, &QAction::triggered, [=] () {          //change vst param value
         imgFilePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
-
     });
 
     imgFilePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "C:\\", tr("Image Files (*.png *.jpg *.bmp)"));
@@ -93,7 +92,7 @@ void ImageVSTHostG::addSlider(QVBoxLayout *box, Host *hst, AEffect *plug, int pl
 
     connect(slid, &QSlider::valueChanged, [=] () {          //change vst param value
         plug->setParameter(plug, plugNum, intToVSTFloat(slid->value()));
-        std::cout << slid->value() <<"," <<VSTFloatToInt(plug->getParameter(plug,plugNum)) << std::endl;
+        //std::cout << slid->value() <<"," <<VSTFloatToInt(plug->getParameter(plug,plugNum)) << std::endl;
         procAndDisplay();
     });
 

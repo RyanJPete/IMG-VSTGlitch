@@ -130,7 +130,7 @@ void Host::printOutputs(){
     float it = outputs[0][0];
     int cnt = 0;
     for (int x = 0; x < inputSize; ++x){
-        printf("%g, ", it);
+        //printf("%g, ", it);
         it = outputs[0][cnt++];
     }
     printf("\n");
@@ -143,7 +143,7 @@ void Host::printInputs(){
         std::cout << it << ", ";
         it = inputs[0][cnt++];
     }
-    printf("\n");
+    //printf("\n");
 }
 
 void  Host::copyin2out(){
@@ -367,6 +367,6 @@ void Host::processAudio(AEffect *plugin){
     //printf("inputs silenced\n");
     //std::cout << iSize << std::endl;
     plugin->processReplacing(plugin, inputs, outputs, iSize); //inputs are channels (as in right and left, array arrays dummy
-    printf("channel processed\n");
+    //printf("channel processed\n");
 }
 
