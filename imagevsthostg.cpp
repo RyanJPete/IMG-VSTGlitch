@@ -14,7 +14,6 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ImageVSTHostG)
 {
-
     char vstPath[] = "C:\\VSTs\\DragonflyRoomReverb-vst.dll";
     //char vstPath[] = "C:\\VSTs\\CocoaDelay64";
 
@@ -31,12 +30,7 @@ ImageVSTHostG::ImageVSTHostG(QWidget *parent)
 
     displayPreview(imgFilePath);
 
-
-    QVBoxLayout *controlLay = new QVBoxLayout();
-
-    for(int x = 0; x < plug->numParams; x++){
-        addSlider(controlLay, hst, plug, x);
-    }
+    controlLay = new QVBoxLayout();
 
     QFrame *controlFrame = new QFrame(ui->controlArea);
     controlFrame->setLayout(controlLay);
@@ -61,6 +55,21 @@ void ImageVSTHostG::changeVST(){
     hst->configurePluginCallbacks(plug);
     hst->startPlugin(plug);
     procAndDisplay();
+
+    //delete old controlls
+    QLayoutItem *child;
+    while((child = controlLay->takeAt(0)) != 0){
+        delete child->widget();
+       // delete child;
+    }
+
+    //add controlls
+
+    for(int x = 0; x < plug->numParams; x++){
+        addSlider(controlLay, hst, plug, x);
+    }
+
+
 }
 
 int ImageVSTHostG::VSTFloatToInt(float val){

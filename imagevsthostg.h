@@ -22,6 +22,8 @@ public:
     ~ImageVSTHostG();
     Host *hst;
     AEffect *plug;
+    QVBoxLayout *controlLay;
+
 
 private slots:
     void on_runVSTBtn_clicked();
@@ -35,6 +37,7 @@ private:
     float intToVSTFloat(int val);
     void procAndDisplay();
     void changeVST();
+    void deleteControls();
 
 };
 #endif // IMAGEVSTHOSTG_H
